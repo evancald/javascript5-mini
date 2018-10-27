@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 var customers = [
   {
     id: 1,
@@ -76,6 +78,17 @@ var customers = [
 
 //CODE HERE
 
+const emailNoLodash = customers.map(customer => {
+  return customer.email;
+})
+
+const emailWithLodash = _.map(customers, function(customer) {
+  return customer.email;
+})
+
+console.log(emailNoLodash);
+console.log(emailWithLodash);
+
 
 
 var inviteList1 = ["Ed", "Fanny", "Mildred", "Alice", "James"];
@@ -107,9 +120,15 @@ var friendsOfBetty = [
   "Nancy"
 ];
 
+const inviteWithLodash = _.union(friendsOfBetty, friendsOfJim);
+console.log(inviteWithLodash);
+
 // Jim and Betty are having a party, but they only want to invite mutual friends.
 // Create an array of mutual friends. First without using lodash.
 // Then using lodash's _.intersection().
+
+const mutualWithLodash = _.intersection(friendsOfBetty, friendsOfJim);
+console.log(mutualWithLodash);
 
 var purchases = [
   {
@@ -148,3 +167,7 @@ var purchases = [
 
 // First, group the purchases by company without lodash
 // then do it again using _.groupBy()
+
+const groupWithLodash = _.groupBy(purchases, 'company');
+
+console.log(groupWithLodash);
